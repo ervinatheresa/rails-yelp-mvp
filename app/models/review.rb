@@ -1,0 +1,7 @@
+class Review < ApplicationRecord
+  belongs_to :restaurant
+
+  validates :content, :rating, presence: true, allow_nil: false
+  validates :rating, numericality: { only_integer: true }
+  validates :rating, inclusion: 0..5, allow_nil: false
+end
